@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title><%= @mail_title%> </title>
+    </head>
+    <body>
+        <p> <%= @mail_title %></p>
+        <%= image_tag attachments['main_file.jpg'].url%>
+        <%-@sub_text.each do |item|%>
+        <p>
+            <strong>
+                <%= item[:title]%>
+            </strong>
+        </p>
+        </br>
+        <p> <%= item[:content]%></p>
+        <%end%>
+
+        <%-@side_pics.each do |item|%>
+            <p>
+                <strong>
+                    <%= item[:title]%>
+                </strong>
+            </p>
+          </br>
+          <p> <%= item[:content]%></p>
+          <%= image_tag attachments["#{item[:title]}.jpg"].url %>
+      <%end%>
+    </body>
+</html>
